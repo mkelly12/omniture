@@ -1,0 +1,15 @@
+Omniture
+========
+
+The magic is inside.
+
+
+Example
+=======
+
+o = Omni.new
+o.add_events [:login]
+o.print_page_code
+
+
+Copyright (c) 2008 Matt, released under the MIT license
