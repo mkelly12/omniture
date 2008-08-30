@@ -35,10 +35,16 @@ class Omni
     end
   end
   
-  def print_js_code(events=nil)
+  def print_js_code(events=nil, evars=nil)
+    events_current = @events
+    evars_current = @evars
     if events
       add_events(events)
     end
+    if evars
+      add_event_variables(evars)
+    end
+    
     out = "var s=s_gi('hotchalkdev'); "
     out << print_events
     out << print_evars
@@ -48,6 +54,8 @@ class Omni
       s.linkTrackEvents='event10,event19';
       s.tl(this,'d', '#{@evars['s.eVar10']}');
     HTML
+    @events = events_current
+    @evars = evars_current
   end
 
   def print_page_code_and_flush
