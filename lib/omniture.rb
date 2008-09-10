@@ -1,4 +1,4 @@
-class Omni
+class Omniture
   
   attr_accessor :events, :evars, :props, :is_flushed
   

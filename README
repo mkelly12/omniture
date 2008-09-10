@@ -7,7 +7,7 @@ The magic is inside.
 Example
 =======
 
-o = Omni.new
+o = Omniture.new
 o.add_events [:login]
 o.print_page_code
 

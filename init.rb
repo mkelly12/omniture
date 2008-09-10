@@ -6,15 +6,14 @@ def to_stderr(s)
 end
 
 # Initializer for Omniture
-config_filename = File.join(File.dirname(__FILE__), '..','..','..','config','omni.yml')
+config_filename = File.join(File.dirname(__FILE__), '..','..','..','config','omniture.yml')
 
 begin
   omniture_config_file = File.read(config_filename)
 rescue => e
   to_stderr e
   to_stderr "Could not read configuration file #{config_filename}."
-  to_stderr "Be sure to put omni.yml into your config directory."
-  to_stderr "Agent is disabled."
+  to_stderr "Be sure to put omniture.yml into your config directory."
   throw :disabled
 end
 
@@ -27,14 +26,6 @@ rescue Exception => e
 end
 
 omniture_config.freeze
-to_stderr"EVARS!!!"
-omniture_config['evars'].each_pair do | key, value|
-  to_stderr "#{key} #{value}"
-end
-to_stderr"EVENTS!!!!"
-omniture_config['events'].each_pair do | key, value|
-  to_stderr "#{key} #{value}"
-end
 
 ::EVARS = omniture_config['evars']
 ::EVENTS = omniture_config['events']
